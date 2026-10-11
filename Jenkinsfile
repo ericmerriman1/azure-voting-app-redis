@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh(script: 'opt/homebrew/bin/docker compose build')
+            sh(script: '/opt/homebrew/bin/docker compose build')
          }
       }
    }
