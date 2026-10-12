@@ -9,17 +9,17 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh(script: 'docker compose build')
+            sh(script: '/opt/homebrew/bin/docker compose build')
          }
       }
       stage('Start App') {
          steps {
-            sh(script: 'docker compose up -d')
+            sh(script: '/opt/homebrew/bin/docker compose up -d')
          }
       }
       stage('Run Tests') {
          steps {
-            sh(script: 'pytest ./tests/test_sample.py')
+            sh(script: '/opt/homebrew/bin/pytest ./tests/test_sample.py')
          }
          post {
             success {
@@ -33,7 +33,7 @@ pipeline {
       stage('Run Grype') {
          agent {label 'build-1'}
          steps {
-            grypeScan autoInstall: false, repName: 'grypeReport_${JOB_NAME}_${BUILD_NUMBER}.txt', scanDest: 'registry:blackdentech/jenkins-course:2023'
+            grypeScan autoInstall: false, repName: 'grypeReport_${JOB_NAME}_${BUILD_NUMBER}.txt', scanDest: 'registry:ericmerriman/jenkins-tutorial:2026'
          }
          post {
             always {
@@ -47,7 +47,7 @@ pipeline {
    }
    post {
       always {
-         sh(script: 'docker compose down')
+         sh(script: '/opt/homebrew/bin/docker compose down')
       }
    }
 }
