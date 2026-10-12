@@ -14,12 +14,12 @@ pipeline {
       }
       stage('Start App') {
          steps {
-            sh(script: 'docker compose up -d')
+            sh(script: '/opt/homebrew/bin/docker compose up -d')
          }
       }
       stage('Run Tests') {
          steps {
-            sh(script: 'pytest ./tests/test_sample.py')
+            sh(script: '/opt/homebrew/anaconda3/bin/pytest ./tests/test_sample.py')
          }
          post {
             success {
@@ -46,7 +46,7 @@ pipeline {
    }
    post {
       always {
-         sh(script: 'docker compose down')
+         sh(script: '/opt/homebrew/bin/docker compose down')
       }
    }
 }
