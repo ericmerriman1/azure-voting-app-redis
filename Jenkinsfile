@@ -19,7 +19,7 @@ pipeline {
       }
       stage('Run Tests') {
          steps {
-            sh(script: 'pytest ./tests/test_sample.py')
+            sh(script: '/opt/homebrew/anaconda3/bin/pytest ./tests/test_sample.py')
          }
          post {
             success {
