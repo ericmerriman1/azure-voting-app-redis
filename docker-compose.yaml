@@ -1,18 +1,18 @@
 version: '3'
 services:
-  azure-vote-back:
+  azure-vote-back-2:
     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-    container_name: azure-vote-back
+    container_name: azure-vote-back-2
     platform: linux/amd64
     environment:
       ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
-  azure-vote-front:
+  azure-vote-front-2:
     build: ./azure-vote
     image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-    container_name: azure-vote-front
+    container_name: azure-vote-front-2
     environment:
       REDIS: azure-vote-back
     ports:
