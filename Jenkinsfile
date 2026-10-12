@@ -66,7 +66,7 @@ pipeline {
                   sh "echo '${env.DOCKER_PASS}' | ${DOCKER_BIN} login --username '${env.DOCKER_USER}' --password-stdin"
                         
                   // Push the image
-                  sh "${DOCKER_BIN} push ${IMAGE_NAME}"
+                  sh "${DOCKER_BIN} push docker.io/${IMAGE_NAME}"
                     }
                 }
          }
