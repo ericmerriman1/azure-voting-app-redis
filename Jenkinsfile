@@ -62,7 +62,7 @@ pipeline {
                passwordVariable: 'DOCKER_PASS'
             )]) {
                script {
-                  sh "docker build -t ${IMAGE_NAME} ./azure-vote"
+                  sh "/opt/homebrew/bin/docker build -t ${IMAGE_NAME} ./azure-vote"
                   // Authenticate using the full docker binary path
                   sh "echo '${env.DOCKER_PASS}' | ${DOCKER_BIN} login --username '${env.DOCKER_USER}' --password-stdin"
                         
