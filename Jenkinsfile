@@ -38,8 +38,8 @@ pipeline {
       stage('Run Grype') {
          agent {label 'build-1'}
          steps {
-            //sh(script: '/opt/homebrew/bin/grype ericmerriman/jenkins-tutorial:2026')
-            grypeScan autoInstall: true, repName: 'grypeReport_${JOB_NAME}_${BUILD_NUMBER}.txt', scanDest: 'registry:ericmerriman/jenkins-tutorial:2026'
+            sh(script: '/opt/homebrew/bin/grype docker:ericmerriman/jenkins-tutorial:2026')
+            //grypeScan autoInstall: true, repName: 'grypeReport_${JOB_NAME}_${BUILD_NUMBER}.txt', scanDest: 'registry:ericmerriman/jenkins-tutorial:2026'
          }
          post {
             always {
