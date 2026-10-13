@@ -1,6 +1,11 @@
 pipeline {
    agent any
 
+   environment {
+        // Prepend your custom path containing the grype binary to the existing PATH
+        PATH = "/opt/homebrew/bin:${env.PATH}"
+    }
+
    stages {
       stage('Verify Branch') {
          steps {
