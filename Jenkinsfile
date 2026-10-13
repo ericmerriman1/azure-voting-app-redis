@@ -14,12 +14,12 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh(script: '/opt/homebrew/bin/docker compose build')
+            sh(script: '/opt/homebrew/bin/docker compose build --platform linux/amd64')
          }
       }
       stage('Start App') {
          steps {
-            sh(script: '/opt/homebrew/bin/docker compose up -d')
+            sh(script: 'DOCKER_DEFAULT_PLATFORM=linux/amd64 /opt/homebrew/bin/docker compose up -d')
          }
       }
       stage('Run Tests') {
