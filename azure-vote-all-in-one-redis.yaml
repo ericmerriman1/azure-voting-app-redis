@@ -30,7 +30,7 @@ metadata:
   name: azure-vote-back-3
 spec:
   ports:
-  - port: 6379
+  - port: 63779
   selector:
     app: azure-vote-back-3
 ---
