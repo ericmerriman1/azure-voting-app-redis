@@ -14,7 +14,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-            sh(script: '/opt/homebrew/bin/docker compose build --platform linux/amd64')
+            sh(script: 'DOCKER_DEFAULT_PLATFORM=linux/amd64 /opt/homebrew/bin/docker compose build')
          }
       }
       stage('Start App') {
