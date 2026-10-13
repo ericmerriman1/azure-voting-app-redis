@@ -53,7 +53,7 @@ pipeline {
    }
    post {
       always {
-         sh(script: '/opt/homebrew/bin/docker compose down')
+         sh(script: 'DOCKER_DEFAULT_PLATFORM=linux/amd64 /opt/homebrew/bin/docker compose down')
       }
    }
 }
